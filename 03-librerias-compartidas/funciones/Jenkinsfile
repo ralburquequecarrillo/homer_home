@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     dockerLib.build(DockerfilePath: "02-primer-pipeline/Dockerfile",
-                                    DockerImage: "caosbinario/homer_page:1.0.0-${BUILD_ID}",
+                                    DockerImage: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
                                     DockerContext: "02-primer-pipeline")
                 }
             }
@@ -15,7 +15,7 @@ pipeline {
         stage('docker push') {
             steps {
                 script {
-                    dockerLib.push(DockerImage: "caosbinario/homer_page:1.0.0-${BUILD_ID}")
+                    dockerLib.push(DockerImage: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}")
                 }
             }
         }
