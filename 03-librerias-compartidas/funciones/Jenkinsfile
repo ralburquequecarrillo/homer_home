@@ -1,22 +1,18 @@
 @Library('jenkinsLibs') _
-pipeline {
+pipeline{
     agent any
-
-    stages {
-        stage('docker build') {
-            steps {
-                script {
-                    dockerLib.build(DockerfilePath: "02-primer-pipeline/Dockerfile",
-                                    DockerImage: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
-                                    DockerContext: "02-primer-pipeline")
-                }
+    
+    stages{
+        stage("Construccion de docker"){
+            script{
+                myDockerLib.push(rutaArchivoDocker: "02-primer-pipeline/Dockerfile",
+                                 nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
+                                 carpetaDocker: "02-primer-pipeline");
             }
         }
-        stage('docker push') {
-            steps {
-                script {
-                    dockerLib.push(DockerImage: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}")
-                }
+        stage("Pusheo de Docker"){
+            script{
+                myDockerLib.push(nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}");
             }
         }
     }
