@@ -4,16 +4,22 @@ pipeline{
     
     stages{
         stage("Construccion de docker"){
-            script{
-                myDockerLib.build(rutaArchivoDocker: "02-primer-pipeline/Dockerfile",
-                                 nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
-                                 carpetaDocker: "02-primer-pipeline");
+            steps{
+                script{
+                    myDockerLib.push(rutaArchivoDocker: "02-primer-pipeline/Dockerfile",
+                                    nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
+                                    carpetaDocker: "02-primer-pipeline");
+                }
             }
+           
         }
         stage("Pusheo de Docker"){
-            script{
-                myDockerLib.push(nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}");
+            steps{
+                script{
+                    myDockerLib.push(nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}");
+                }
             }
+            
         }
     }
 }
