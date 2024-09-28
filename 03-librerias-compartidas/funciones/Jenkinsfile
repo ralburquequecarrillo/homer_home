@@ -5,7 +5,7 @@ pipeline{
     stages{
         stage("Construccion de docker"){
             script{
-                myDockerLib.push(rutaArchivoDocker: "02-primer-pipeline/Dockerfile",
+                myDockerLib.build(rutaArchivoDocker: "02-primer-pipeline/Dockerfile",
                                  nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
                                  carpetaDocker: "02-primer-pipeline");
             }
