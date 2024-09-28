@@ -1,4 +1,4 @@
-@Library('jenkinsLibs')
+@Library('jenkinsLibs') _
 myDockerPipeline(
     rutaArchivoDocker: "02-primer-pipeline/Dockerfile",
     nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
