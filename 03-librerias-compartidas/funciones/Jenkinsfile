@@ -8,7 +8,7 @@ pipeline{
                 script{
                     myDockerLib.push(rutaArchivoDocker: "02-primer-pipeline/Dockerfile",
                                     nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
-                                    carpetaDocker: "02-primer-pipeline");
+                                    carpetaDocker: "02-primer-pipeline")
                 }
             }
            
@@ -16,7 +16,7 @@ pipeline{
         stage("Pusheo de Docker"){
             steps{
                 script{
-                    myDockerLib.push(nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}");
+                    myDockerLib.push(nombreImagenDocker: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}")
                 }
             }
             
