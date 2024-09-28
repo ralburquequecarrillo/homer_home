@@ -1,5 +1,5 @@
 @Library('jenkinsLibs') _
-dockerPipeline(
+myDockerPipeline(
     dockerfilePath: "02-primer-pipeline/Dockerfile",
     dockerImage: "ralburqueque11/homer_page:1.0.0-${BUILD_ID}",
     dockerContext: "02-primer-pipeline"
